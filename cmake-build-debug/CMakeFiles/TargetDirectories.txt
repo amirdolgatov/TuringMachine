@@ -1,3 +1,3 @@
-/home/amir/Projects/turing/cmake-build-debug/CMakeFiles/turing.dir
-/home/amir/Projects/turing/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/amir/Projects/turing/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/amir/Projects/TuringMachine/cmake-build-debug/CMakeFiles/turing.dir
+/home/amir/Projects/TuringMachine/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/amir/Projects/TuringMachine/cmake-build-debug/CMakeFiles/rebuild_cache.dir

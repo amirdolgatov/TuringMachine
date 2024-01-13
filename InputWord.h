@@ -21,16 +21,47 @@ public:
             cellPionter--;
     }
 
-    char visibleCell(){
+    char getCellSymbol(){
         return word[cellPionter];
     }
 
     void printWord(){
-        std::cout << word << std::endl;
+        std::string temp = " ";
+
+        system("clear");
+
+        std::cout << " ";
+
+        for (int i = 0; i < word.size(); ++i) {
+            if(i == cellPionter){
+                std::cout << "|";
+                temp.append({'|'});
+            }
+            else{
+                std::cout << " ";
+                temp.append({' '});
+            }
+        }
+        std::cout << std::endl;
+
+        std::cout << " " << word << std::endl;
+
+        std::cout << temp << std::endl;
+    }
+
+    void printStart(){
+        system("clear");
+        std::cout << "|" << std::endl;
+        std::cout << " " << word << std::endl;
+        std::cout << "|" << std::endl;
     }
 
     void setSymbol(char c){
         word[cellPionter] = c;
+    }
+
+    void setWord(const std::string& str){
+        word = str;
     }
 
 private:

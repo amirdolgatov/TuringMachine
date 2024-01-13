@@ -4,11 +4,21 @@
 #include <vector>
 #include <stdint.h>
 #include <string.h>
+#include <time.h>
+#include <stdlib.h>
+#include <signal.h>
+
+#include "InputWord.h"
 
 enum struct Motion{
     Left = 'L',
     Right = 'R',
     Stop = 'N'
+};
+
+struct ConfigurationTM{
+    uint32_t state;
+    char symbol;
 };
 
 struct Command{
@@ -18,7 +28,7 @@ struct Command{
 };
 
 
-class commandStorage{
+class CommandStorage{
 public:
 
     static std::vector<std::string> split(std::string& str){
@@ -67,7 +77,7 @@ public:
 
     }
 
-
+    ///* Ввод команд программы для машины Тьюринга
     void inputTuringProgramm(){
         std::cout << "Enter programm (ex: [1,a,b,>,1]" << std::endl;
         std::cout << " > - move right" << std::endl;
@@ -79,7 +89,7 @@ public:
             getline(std::cin, temp);
             splittedStrings = split(temp);
             if(splittedStrings.size() == 5) {                   // there must be 5 elements is the instruction
-                strContainer.emplace_back(splittedStrings);
+                strVector.emplace_back(splittedStrings);
             }
             else if(splittedStrings.size() == 1){               // one element means it's the end of commands input
                 std::cout << "Stop data entry" << std::endl;
@@ -93,9 +103,13 @@ public:
 
 
     void buildTMtable(){
-        for (auto& instruction: strContainer) {
+        for (auto& instruction: strVector) {
             strProcess(instruction);
         }
+    }
+
+    Command getInstructions(ConfigurationTM& config){
+        
     }
 
 private:
@@ -107,35 +121,25 @@ private:
 class TuringMachine{
 public:
 
+void start(){
 
+    ConfigurationTM config{.state = 0, .symbol = ' '};
 
+    auto& [state, symbol] = config;
+
+    while (true){
+        symbol = word.getCellSymbol();
+        instructions.
+    }
+}
+
+    CommandStorage instructions;
+    InputWord word;
 
 };
 
 
 
-
-void getTuringProgramm(){
-    while (true){
-        std::string temp;
-        std::vector<std::string> splittedStrings;
-        getline(std::cin, temp);
-        splittedStrings = split(temp);
-        if(splittedStrings.size() == 5) {
-            //addInstruction(splittedStrings);
-            container.emplace_back(splittedStrings);
-        }
-        else if(splittedStrings.size() == 1){
-            std::cout << "Stop data entry" << std::endl;
-
-            break;
-        }
-        else{
-            std::cout << "Incorrect instruction!" << std::endl;
-        }
-    }
-
-}
 
 int main() {
 
@@ -150,6 +154,18 @@ int main() {
         std::cout << std::endl;
     }
 
-    std::cout << "Hello, World!" << std::endl;
+    InputWord inputWord;
+    inputWord.setWord("testword");
+    inputWord.printStart();
+    while (i++ <= 20){
+        if (i < 11){
+            inputWord.stepRight();
+        }
+        if (i >= 11){
+            inputWord.stepLeft();
+        }
+        inputWord.printWord();
+        usleep(100000);
+    }
     return 0;
 }

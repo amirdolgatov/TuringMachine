@@ -4,14 +4,14 @@
 		"generator" : 
 		{
 			"multiConfig" : false,
-			"name" : "Ninja"
+			"name" : "Unix Makefiles"
 		},
 		"paths" : 
 		{
-			"cmake" : "/home/amir/Downloads/CLion-2023.2.2/clion-2023.2.2/bin/cmake/linux/x64/bin/cmake",
-			"cpack" : "/home/amir/Downloads/CLion-2023.2.2/clion-2023.2.2/bin/cmake/linux/x64/bin/cpack",
-			"ctest" : "/home/amir/Downloads/CLion-2023.2.2/clion-2023.2.2/bin/cmake/linux/x64/bin/ctest",
-			"root" : "/home/amir/Downloads/CLion-2023.2.2/clion-2023.2.2/bin/cmake/linux/x64/share/cmake-3.26"
+			"cmake" : "/home/amir/Downloads/clion-2022.2.4/bin/cmake/linux/x64/bin/cmake",
+			"cpack" : "/home/amir/Downloads/clion-2022.2.4/bin/cmake/linux/x64/bin/cpack",
+			"ctest" : "/home/amir/Downloads/clion-2022.2.4/bin/cmake/linux/x64/bin/ctest",
+			"root" : "/home/amir/Downloads/clion-2022.2.4/bin/cmake/linux/x64/share/cmake-3.26"
 		},
 		"version" : 
 		{
@@ -26,7 +26,7 @@
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-81efaa6b8b427a556b0c.json",
+			"jsonFile" : "codemodel-v2-27cea715fb3a6c1834fb.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-a536ada273915bf5723e.json",
+			"jsonFile" : "cache-v2-68401f1035019046757c.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cmakeFiles-v1-fa6b536f5de439ec8b62.json",
+			"jsonFile" : "cmakeFiles-v1-7ce59782fd0807a6d4d2.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -53,7 +53,7 @@
 			}
 		},
 		{
-			"jsonFile" : "toolchains-v1-ee5ca47e57a615ee224c.json",
+			"jsonFile" : "toolchains-v1-99265b04de7ada3aac9e.json",
 			"kind" : "toolchains",
 			"version" : 
 			{
@@ -66,7 +66,7 @@
 	{
 		"cache-v2" : 
 		{
-			"jsonFile" : "cache-v2-a536ada273915bf5723e.json",
+			"jsonFile" : "cache-v2-68401f1035019046757c.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -76,7 +76,7 @@
 		},
 		"cmakeFiles-v1" : 
 		{
-			"jsonFile" : "cmakeFiles-v1-fa6b536f5de439ec8b62.json",
+			"jsonFile" : "cmakeFiles-v1-7ce59782fd0807a6d4d2.json",
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -86,7 +86,7 @@
 		},
 		"codemodel-v2" : 
 		{
-			"jsonFile" : "codemodel-v2-81efaa6b8b427a556b0c.json",
+			"jsonFile" : "codemodel-v2-27cea715fb3a6c1834fb.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -96,7 +96,7 @@
 		},
 		"toolchains-v1" : 
 		{
-			"jsonFile" : "toolchains-v1-ee5ca47e57a615ee224c.json",
+			"jsonFile" : "toolchains-v1-99265b04de7ada3aac9e.json",
 			"kind" : "toolchains",
 			"version" : 
 			{
