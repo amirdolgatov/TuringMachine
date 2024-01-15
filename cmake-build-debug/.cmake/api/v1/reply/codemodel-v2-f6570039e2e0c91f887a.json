@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/amir/Projects/TuringMachine/cmake-build-debug",
-		"source" : "/home/amir/Projects/TuringMachine"
+		"build" : "/home/user/Projects/TuringMachine/cmake-build-debug",
+		"source" : "/home/user/Projects/TuringMachine"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }

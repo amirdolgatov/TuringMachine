@@ -2,6 +2,7 @@
 #include <map>
 #include <unordered_map>
 #include <vector>
+#include <functional>
 #include <stdint.h>
 #include <string.h>
 #include <time.h>
@@ -19,6 +20,14 @@ enum struct Motion{
 struct ConfigurationTM{
     uint32_t state;
     char symbol;
+
+    bool operator()(const ConfigurationTM& left, const ConfigurationTM& right) const{
+        if(left.state != right.state)
+            return left.state < right.state;
+        else
+            return left.symbol < right.symbol;
+    }
+
 };
 
 struct Command{
@@ -31,6 +40,11 @@ struct Command{
 class CommandStorage{
 public:
 
+    /*!
+     * Split string into symbols
+     * @param str
+     * @return
+     */
     static std::vector<std::string> split(std::string& str){
         std::vector<std::string> splittedStrings;
         std::string temp;
@@ -55,7 +69,7 @@ public:
 
     void strProcess(std::vector<std::string> commands){
 
-        std::pair<std::pair<uint32_t, char>, Command> temp;
+        std::pair<ConfigurationTM, Command> temp;
 
         uint32_t state = stoul(commands[0]);
         char symbol = *(commands[1].c_str());
@@ -109,32 +123,65 @@ public:
     }
 
     Command getInstructions(ConfigurationTM& config){
-        
+        return instructionsContainer.at(config);
+    }
+
+    void addInstructions(ConfigurationTM& configTM, Command& command){
+        instructionsContainer.emplace(configTM, command);
     }
 
 private:
 
-    std::map<std::pair<uint32_t, char>, Command> instructionsContainer;
+    std::map<ConfigurationTM, Command, ConfigurationTM> instructionsContainer;
     std::vector<std::vector<std::string>> strVector;
 };
+
+
 
 class TuringMachine{
 public:
 
-void start(){
-
-    ConfigurationTM config{.state = 0, .symbol = ' '};
-
-    auto& [state, symbol] = config;
-
-    while (true){
-        symbol = word.getCellSymbol();
-        instructions.
+    void instructionHandler(Command& instruction){
+        word.setSymbol(instruction.newSymbol);
+        if (instruction.motion == '>')
+            word.stepRight();
+        if (instruction.motion == '<')
+            word.stepLeft();
+        this->config.state = instruction.state;
     }
-}
+
+
+    /*!
+     * Start executing turing programm
+     */
+    void start(){
+
+        Command instruction;
+        auto& [state, symbol] = config;
+
+        /*!
+         * Такты машины
+         *
+         * На каждом такте совершаются три действия:
+         *
+         * 1. запись символа (в том числе "пустого")
+         * 2. сдвиг на одну клетку, либо отсутствие перемещения
+         * 3. переход в новое состояние
+         *
+         */
+
+        while (true){
+            config.symbol = word.getCellSymbol();
+            instruction = instructions.getInstructions(config);
+            instructionHandler(instruction);
+            word.printWord();
+            sleep(1);
+        }
+    }
 
     CommandStorage instructions;
     InputWord word;
+    ConfigurationTM config{.state = 0, .symbol = ' '};
 
 };
 
